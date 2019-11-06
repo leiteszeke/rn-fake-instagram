@@ -2,159 +2,64 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+// Styles
+import styles from './styles';
 
 const Post = props => (
-  <View style={{marginBottom: 16}}>
-    <View
-      style={{
-        height: 54,
-        alignItems: 'center',
-        paddingLeft: 12,
-        paddingRight: 16,
-        flexDirection: 'row',
-      }}>
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#121212',
-          marginRight: 10,
-          height: 32,
-          borderRadius: 16,
-          borderColor: '#fb3983',
-          borderWidth: props.story ? 2 : 0,
-          width: 32,
-        }}>
-        <Image
-          source={{uri: props.profile_img}}
-          style={{
-            borderRadius: 14,
-            height: 28,
-            width: 28,
-          }}
-        />
+  <View style={styles.wrapper}>
+    <View style={styles.header}>
+      <View style={styles.imageContainer}>
+        <Image source={{uri: props.profile_img}} style={styles.profileImage} />
       </View>
-      <View style={{justifyContent: 'center', flex: 1}}>
-        <Text
-          style={{
-            fontSize: 14,
-            textDecorationLine: 'underline',
-            fontWeight: 'bold',
-            color: '#FFFFFF',
-          }}>
-          {props.user}
-        </Text>
-        <Text
-          style={{
-            fontSize: 14,
-            textDecorationLine: 'underline',
-            color: '#FFFFFF',
-          }}>
-          {props.place}
-        </Text>
+      <View style={styles.metaData}>
+        <Text style={styles.user}>{props.user}</Text>
+        <Text style={styles.place}>{props.place}</Text>
       </View>
-      <View
-        style={{
-          height: 34,
-          width: 34,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+      <View style={styles.headerOptions}>
         <Icon name="ios-more" size={28} color="#FFFFFF" />
       </View>
     </View>
     <Image
       source={{uri: props.media}}
-      style={{width: '100%', height: 375}}
+      style={styles.media}
       resizeMode="cover"
     />
-    <View
-      style={{
-        height: 52,
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingLeft: 12,
-        paddingRight: 16,
-      }}>
-      <View
-        style={{
-          width: 104,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
+    <View style={styles.actions}>
+      <View style={styles.leftAction}>
         <Icon name="ios-heart-empty" size={28} color="#FFFFFF" />
         <Icon name="ios-text" size={28} color="#FFFFFF" />
         <Icon name="ios-send" size={28} color="#FFFFFF" />
       </View>
       <View style={{flex: 1}} />
-      <View style={{width: 30, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.rightActions}>
         <Icon name="ios-bookmark" size={28} color="#FFFFFF" />
       </View>
     </View>
-    <View style={{paddingHorizontal: 16}}>
-      <Text
-        style={{
-          fontSize: 16,
-          marginBottom: 12,
-          fontWeight: 'bold',
-          color: '#FFFFFF',
-        }}>
-        Piace 6.080 persone
+    <View style={styles.postBody}>
+      <Text style={styles.likes}>Piace 6.080 persone</Text>
+      <Text style={styles.descriptionWrapper}>
+        <Text style={styles.description}>acmilan</Text> #MilanLazio: warm-up 🔙
       </Text>
-      <Text style={{fontSize: 16, color: '#FFFFFF', marginBottom: 12}}>
-        <Text style={{fontWeight: 'bold'}}>acmilan</Text> #MilanLazio: warm-up
-        🔙
-      </Text>
-      <Text style={{fontSize: 16, color: '#9A9A9A'}}>
+      <Text style={styles.commentsCount}>
         Visualizza tutti e 940 i commenti
       </Text>
     </View>
-    <View
-      style={{
-        paddingHorizontal: 16,
-        alignItems: 'center',
-        flexDirection: 'row',
-        marginTop: 14,
-      }}>
+    <View style={styles.commentRow}>
       <Image
         source={{uri: 'https://picsum.photos/100/100?=13'}}
-        style={{
-          backgroundColor: '#121212',
-          borderRadius: 13,
-          marginRight: 10,
-          height: 26,
-          width: 26,
-        }}
+        style={styles.userPhoto}
       />
-      <View style={{justifyContent: 'center', flex: 1}}>
-        <Text style={{fontSize: 16, color: '#9A9A9A'}}>
-          Aggiungi un commenti
-        </Text>
+      <View style={styles.commentWrapper}>
+        <Text style={styles.addComment}>Aggiungi un commenti</Text>
       </View>
-      <Text style={{marginRight: 4}}>😍 👏🏻</Text>
-      <View
-        style={{
-          height: 26,
-          width: 26,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+      <Text style={styles.reactions}>😍 👏🏻</Text>
+      <View style={styles.moreReactions}>
         <Icon name="ios-add-circle-outline" size={24} color="#5d5d5d" />
       </View>
     </View>
-    <View
-      style={{
-        paddingHorizontal: 16,
-        alignItems: 'center',
-        flexDirection: 'row',
-        marginTop: 12,
-      }}>
-      <Text style={{fontSize: 16, color: '#9A9A9A', marginRight: 8}}>
-        49 minuti fa ·
-      </Text>
-      <Text style={{fontSize: 16, fontWeight: 'bold', color: '#FFFFFF'}}>
-        Visualizza traduzione
-      </Text>
+    <View style={styles.footer}>
+      <Text style={styles.timestamp}>49 minuti fa ·</Text>
+      <Text style={styles.translate}>Visualizza traduzione</Text>
     </View>
   </View>
 );

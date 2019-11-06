@@ -1,6 +1,8 @@
 // Dependencies
 import React from 'react';
 import {ScrollView, View, Text, Image} from 'react-native';
+// Styles
+import styles from './styles';
 
 const users = [
   {
@@ -18,29 +20,19 @@ const users = [
 ];
 
 const Story = ({image, name, withStory, user = false}) => (
-  <View style={{width: 92, paddingHorizontal: 4, alignItems: 'center'}}>
+  <View style={styles.wrapper}>
     <View
-      style={{
-        borderColor: withStory ? '#fb3983' : '#5e5e5e',
-        borderWidth: 2,
-        width: 64,
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 64,
-        borderRadius: 32,
-      }}>
-      <Image
-        source={{uri: image}}
-        style={{borderRadius: 28, height: 56, width: 56}}
-      />
+      style={[
+        styles.imageWrapper,
+        {
+          borderColor: withStory ? '#fb3983' : '#5e5e5e',
+        },
+      ]}>
+      <Image source={{uri: image}} style={styles.image} />
     </View>
     <Text
       numberOfLines={1}
-      style={{
-        color: user ? '#ababab' : '#FFFFFF',
-        marginTop: 6,
-        textAlign: 'center',
-      }}>
+      style={[styles.user, {color: user ? '#ababab' : '#FFFFFF'}]}>
       {name}
     </Text>
   </View>
@@ -48,8 +40,8 @@ const Story = ({image, name, withStory, user = false}) => (
 
 const Stories = () => (
   <ScrollView
-    contentContainerStyle={{alignItems: 'center'}}
-    style={{height: 100, backgroundColor: '#121212'}}
+    contentContainerStyle={styles.container}
+    style={styles.content}
     horizontal={true}
     showsHorizontalScrollIndicator={false}
     shows>

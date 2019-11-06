@@ -8,6 +8,8 @@ import Stories from '#components/Stories';
 import Post from '#components/Post';
 // Images
 import logo from '#images/logo.png';
+// Styles
+import styles from './styles';
 
 const posts = [
   {
@@ -46,22 +48,12 @@ const posts = [
 
 const Feed = () => (
   <Layout bgColor="#121212">
-    <View
-      style={{
-        height: 48,
-        backgroundColor: '#121212',
-        borderBottomWidth: 2,
-        borderBottomColor: '#181818',
-        paddingHorizontal: 12,
-        flexDirection: 'row',
-        justifyCenter: 'space-between',
-        alignItems: 'center',
-      }}>
+    <View style={styles.header}>
       <Icon name="ios-camera" size={26} color="#FFFFFF" />
-      <Image style={{height: 32, flex: 1}} resizeMode="contain" source={logo} />
+      <Image style={styles.logo} resizeMode="contain" source={logo} />
       <Icon name="ios-send" size={26} color="#FFFFFF" />
     </View>
-    <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
       <Stories />
       {posts.map(post => (
         <Post key={post.id} {...post} />

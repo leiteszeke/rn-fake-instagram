@@ -11,6 +11,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 // Components
 import Layout from '#components/Layout';
+// Styles
+import styles from './styles';
 
 const windowWidth = Dimensions.get('window').width;
 const IMAGES_PER_ROW = 3;
@@ -44,24 +46,13 @@ const chunkArray = (array, size) => {
 };
 
 const Badge = props => (
-  <View
-    style={{
-      borderWidth: 2,
-      borderColor: '#262626',
-      borderRadius: 8,
-      height: 32,
-      marginRight: 8,
-      justifyContent: 'center',
-      paddingHorizontal: 12,
-    }}>
-    <Text style={{color: '#FFFFFF', fontWeight: 'bold', fontSize: 14}}>
-      {props.text}
-    </Text>
+  <View style={styles.badgeContainer}>
+    <Text style={styles.badgeText}>{props.text}</Text>
   </View>
 );
 
 const ImageRow = ({images}) => (
-  <View style={{flexDirection: 'row'}}>
+  <View style={styles.imageRow}>
     {images.map(image => (
       <Image source={{uri: image.image}} style={calculatedSize()} />
     ))}
@@ -74,11 +65,11 @@ const BigImageRow = ({images}) => {
   const smallImages = images.filter(image => !image.big);
 
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={styles.imagesContainer}>
       {bigIndex === 0 ? (
         <>
           <Image source={{uri: bigImage.image}} style={calculatedSize(true)} />
-          <View style={{flexDirection: 'column'}}>
+          <View style={styles.column}>
             {smallImages.map(image => (
               <Image
                 key={image.id}
@@ -90,7 +81,7 @@ const BigImageRow = ({images}) => {
         </>
       ) : (
         <>
-          <View style={{flexDirection: 'column'}}>
+          <View style={styles.column}>
             {smallImages.map(image => (
               <Image
                 key={image.id}
@@ -127,50 +118,19 @@ const Gallery = ({images}) => {
 
 const Discover = () => (
   <Layout bgColor="#121212">
-    <View
-      style={{
-        height: 48,
-        backgroundColor: '#121212',
-        paddingHorizontal: 12,
-        flexDirection: 'row',
-        justifyCenter: 'space-between',
-        alignItems: 'center',
-        marginBottom: 8,
-      }}>
-      <View
-        style={{
-          backgroundColor: '#262626',
-          borderRadius: 8,
-          height: 36,
-          flexDirection: 'row',
-          marginRight: 16,
-          paddingHorizontal: 12,
-          flex: 1,
-          alignItems: 'center',
-        }}>
+    <View style={styles.header}>
+      <View style={styles.search}>
         <Icon name="ios-search" size={18} color="#8e8e92" />
         <TextInput
           placeholderTextColor="#8e8e92"
           placeholder="Cerca"
-          style={{
-            color: '#FFFFFF',
-            height: 36,
-            marginLeft: 4,
-            fontSize: 18,
-            paddingLeft: 8,
-            flex: 1,
-          }}
+          style={styles.input}
         />
       </View>
       <Icon name="md-qr-scanner" size={26} color="#FFFFFF" />
     </View>
     <ScrollView
-      contentContainerStyle={{
-        height: 40,
-        marginBottom: 8,
-        flexDirection: 'row',
-        paddingHorizontal: 12,
-      }}
+      contentContainerStyle={styles.badges}
       showsHorizontalScrollIndicator={false}
       horizontal={true}>
       {badges.map(badge => (
@@ -179,9 +139,7 @@ const Discover = () => (
     </ScrollView>
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{
-        width: '100%',
-      }}>
+      contentContainerStyle={styles.content}>
       <Gallery images={images} />
     </ScrollView>
   </Layout>
