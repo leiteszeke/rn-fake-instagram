@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#181818',
     paddingHorizontal: 12,
     flexDirection: 'row',
-    justifyCenter: 'space-between',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 

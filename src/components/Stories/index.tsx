@@ -4,6 +4,14 @@ import {ScrollView, View, Text, Image} from 'react-native';
 // Styles
 import styles from './styles';
 
+interface StoryProps {
+  id?: Number;
+  image: string;
+  name: string;
+  withStory: boolean;
+  user?: boolean;
+}
+
 const users = [
   {
     id: 1,
@@ -19,7 +27,7 @@ const users = [
   {id: 8, image: 'https://picsum.photos/100/100?=12', name: 'php_ar'},
 ];
 
-const Story = ({image, name, withStory, user = false}) => (
+const Story: React.FC<StoryProps> = ({image, name, withStory, user = false}) => (
   <View style={styles.wrapper}>
     <View
       style={[
@@ -38,13 +46,13 @@ const Story = ({image, name, withStory, user = false}) => (
   </View>
 );
 
-const Stories = () => (
+const Stories: React.FC = () => (
   <ScrollView
     contentContainerStyle={styles.container}
     style={styles.content}
     horizontal={true}
     showsHorizontalScrollIndicator={false}
-    shows>
+    >
     <Story
       {...{
         name: 'La tua storia',

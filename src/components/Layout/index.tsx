@@ -3,7 +3,12 @@ import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 
-const Layout = ({bgColor = '#FFFFFF', children}) => (
+interface LayoutProps {
+  bgColor?: string;
+  children: React.ReactChildren;
+}
+
+const Layout: React.FC<LayoutProps> = ({bgColor = '#FFFFFF', children}) => (
   <SafeAreaProvider>
     <SafeAreaView
       style={{backgroundColor: bgColor, flex: 1}}

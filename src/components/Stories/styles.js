@@ -2,10 +2,21 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {alignItems: 'center'},
-  content: {height: 100, backgroundColor: '#121212'},
+  container: {
+    alignItems: 'center',
+  },
 
-  wrapper: {width: 92, paddingHorizontal: 4, alignItems: 'center'},
+  content: {
+    height: 100,
+    backgroundColor: '#121212',
+  },
+
+  wrapper: {
+    width: 92,
+    paddingHorizontal: 4,
+    alignItems: 'center',
+  },
+
   imageWrapper: {
     borderWidth: 2,
     width: 64,
@@ -15,7 +26,12 @@ const styles = StyleSheet.create({
     borderRadius: 32,
   },
 
-  image: {borderRadius: 28, height: 56, width: 56},
+  image: {
+    borderRadius: 28,
+    height: 56,
+    width: 56,
+  },
+
   user: {
     marginTop: 6,
     textAlign: 'center',

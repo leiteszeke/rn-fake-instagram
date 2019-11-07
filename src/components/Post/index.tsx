@@ -5,11 +5,28 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // Styles
 import styles from './styles';
 
-const Post = props => (
+interface PostProps {
+  story: boolean;
+  user: string;
+  place: string;
+  profile_img: string;
+  media: string;
+}
+
+const Post: React.FC<PostProps> = props => (
   <View style={styles.wrapper}>
     <View style={styles.header}>
-      <View style={styles.imageContainer}>
-        <Image source={{uri: props.profile_img}} style={styles.profileImage} />
+      <View
+        style={[
+          styles.imageContainer,
+          {
+            borderWidth: props.story ? 2 : 0,
+          },
+        ]}>
+        <Image
+          source={{uri: props.profile_img}}
+          style={styles.profileImage}
+        />
       </View>
       <View style={styles.metaData}>
         <Text style={styles.user}>{props.user}</Text>
@@ -25,7 +42,7 @@ const Post = props => (
       resizeMode="cover"
     />
     <View style={styles.actions}>
-      <View style={styles.leftAction}>
+      <View style={styles.leftActions}>
         <Icon name="ios-heart-empty" size={28} color="#FFFFFF" />
         <Icon name="ios-text" size={28} color="#FFFFFF" />
         <Icon name="ios-send" size={28} color="#FFFFFF" />
@@ -38,7 +55,8 @@ const Post = props => (
     <View style={styles.postBody}>
       <Text style={styles.likes}>Piace 6.080 persone</Text>
       <Text style={styles.descriptionWrapper}>
-        <Text style={styles.description}>acmilan</Text> #MilanLazio: warm-up 🔙
+        <Text style={styles.description}>acmilan</Text> #MilanLazio: warm-up
+        🔙
       </Text>
       <Text style={styles.commentsCount}>
         Visualizza tutti e 940 i commenti

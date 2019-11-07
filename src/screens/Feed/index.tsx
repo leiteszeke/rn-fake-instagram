@@ -46,7 +46,7 @@ const posts = [
   },
 ];
 
-const Feed = () => (
+const Feed: React.FC = () => (
   <Layout bgColor="#121212">
     <View style={styles.header}>
       <Icon name="ios-camera" size={26} color="#FFFFFF" />

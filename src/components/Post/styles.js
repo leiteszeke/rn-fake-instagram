@@ -2,7 +2,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  wrapper: {marginBottom: 16},
+  wrapper: {
+    marginBottom: 16,
+  },
 
   header: {
     height: 54,
@@ -20,7 +22,6 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     borderColor: '#fb3983',
-    borderWidth: props.story ? 2 : 0,
     width: 32,
   },
 
@@ -30,7 +31,10 @@ const styles = StyleSheet.create({
     width: 28,
   },
 
-  metaData: {justifyContent: 'center', flex: 1},
+  metaData: {
+    justifyContent: 'center',
+    flex: 1,
+  },
 
   user: {
     fontSize: 14,
@@ -52,7 +56,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  media: {width: '100%', height: 375},
+  media: {
+    width: '100%',
+    height: 375,
+  },
 
   actions: {
     height: 52,
@@ -67,9 +74,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  rightActions: {width: 30, justifyContent: 'center', alignItems: 'center'},
 
-  postBody: {paddingHorizontal: 16},
+  rightActions: {
+    width: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  postBody: {
+    paddingHorizontal: 16,
+  },
 
   likes: {
     fontSize: 16,
@@ -78,10 +92,20 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 
-  descriptionWrapper: {fontSize: 16, color: '#FFFFFF', marginBottom: 12},
-  description: {fontWeight: 'bold'},
+  descriptionWrapper: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    marginBottom: 12,
+  },
 
-  commentsCount: {fontSize: 16, color: '#9A9A9A'},
+  description: {
+    fontWeight: 'bold',
+  },
+
+  commentsCount: {
+    fontSize: 16,
+    color: '#9A9A9A',
+  },
 
   commentRow: {
     paddingHorizontal: 16,
@@ -89,6 +113,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 14,
   },
+
   userPhoto: {
     backgroundColor: '#121212',
     borderRadius: 13,
@@ -97,10 +122,20 @@ const styles = StyleSheet.create({
     width: 26,
   },
 
-  commentWrapper: {justifyContent: 'center', flex: 1},
-  addComment: {fontSize: 16, color: '#9A9A9A'},
+  commentWrapper: {
+    justifyContent: 'center',
+    flex: 1,
+  },
 
-  reactions: {marginRight: 4},
+  addComment: {
+    fontSize: 16,
+    color: '#9A9A9A',
+  },
+
+  reactions: {
+    marginRight: 4,
+  },
+
   moreReactions: {
     height: 26,
     width: 26,
@@ -114,8 +149,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 12,
   },
-  timestamp: {fontSize: 16, color: '#9A9A9A', marginRight: 8},
-  translate: {fontSize: 16, fontWeight: 'bold', color: '#FFFFFF'},
+
+  timestamp: {
+    fontSize: 16,
+    color: '#9A9A9A',
+    marginRight: 8,
+  },
+
+  translate: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+  },
 });
 
 export default styles;
